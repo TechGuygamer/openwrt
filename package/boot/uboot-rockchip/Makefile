@@ -52,7 +52,7 @@ define U-Boot/nanopi-m4-2gb-rk3399
   BUILD_SUBTARGET:=armv8
   NAME:=NanoPi M4 2GB
   BUILD_DEVICES:= \
-    friendlyarm_nanopi-m4-2gb
+    friendlyarm_nanopi-m4
   DEPENDS:=+PACKAGE_u-boot-nanopi-m4-2gb-rk3399:arm-trusted-firmware-rockchip
   PKG_BUILD_DEPENDS:=arm-trusted-firmware-rockchip
   ATF:=rk3399_bl31.elf
