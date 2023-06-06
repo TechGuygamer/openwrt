@@ -65,7 +65,7 @@ Signed-off-by: Maxime Ripard <maxime@cerno.tech>
  		struct drm_device *drm = connector->dev;
  		struct drm_display_mode *mode;
  
-@@ -1672,11 +1673,12 @@ vc4_hdmi_encoder_clock_valid(const struc
+@@ -1673,11 +1674,12 @@ vc4_hdmi_encoder_clock_valid(const struc
  {
  	const struct drm_connector *connector = &vc4_hdmi->connector;
  	const struct drm_display_info *info = &connector->display_info;

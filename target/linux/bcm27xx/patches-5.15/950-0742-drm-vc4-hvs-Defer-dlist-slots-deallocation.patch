@@ -80,7 +80,7 @@ Signed-off-by: Maxime Ripard <maxime@cerno.tech>
 
 --- a/drivers/gpu/drm/vc4/vc4_crtc.c
 +++ b/drivers/gpu/drm/vc4/vc4_crtc.c
-@@ -959,14 +959,8 @@ void vc4_crtc_destroy_state(struct drm_c
+@@ -943,14 +943,8 @@ void vc4_crtc_destroy_state(struct drm_c
  	struct vc4_dev *vc4 = to_vc4_dev(crtc->dev);
  	struct vc4_crtc_state *vc4_state = to_vc4_crtc_state(state);
  
@@ -139,8 +139,8 @@ Signed-off-by: Maxime Ripard <maxime@cerno.tech>
  void vc4_hvs_atomic_enable(struct drm_crtc *crtc, struct drm_atomic_state *state);
 --- a/drivers/gpu/drm/vc4/vc4_hvs.c
 +++ b/drivers/gpu/drm/vc4/vc4_hvs.c
-@@ -389,6 +389,150 @@ static void vc5_hvs_update_gamma_lut(str
- 	vc5_hvs_lut_load(hvs, vc4_crtc);
+@@ -315,6 +315,150 @@ static void vc4_hvs_update_gamma_lut(str
+ 	vc4_hvs_lut_load(hvs, vc4_crtc);
  }
  
 +static void vc4_hvs_irq_enable_eof(const struct vc4_hvs *hvs,
@@ -388,7 +388,7 @@ Signed-off-by: Maxime Ripard <maxime@cerno.tech>
  	}
  
  	/* Clear every per-channel interrupt flag. */
-@@ -902,6 +1055,8 @@ static int vc4_hvs_bind(struct device *d
+@@ -903,6 +1056,8 @@ static int vc4_hvs_bind(struct device *d
  		hvs->dlist = hvs->regs + SCALER5_DLIST_START;
  
  	spin_lock_init(&hvs->mm_lock);
@@ -399,7 +399,7 @@ Signed-off-by: Maxime Ripard <maxime@cerno.tech>
  	 * overwrite the setup from the bootloader (just 128b out of
 --- a/drivers/gpu/drm/vc4/vc4_regs.h
 +++ b/drivers/gpu/drm/vc4/vc4_regs.h
-@@ -234,6 +234,7 @@
+@@ -240,6 +240,7 @@
  # define SCALER_DISPCTRL_DSPEIEOLN(x)		BIT(8 + ((x) * 2))
  /* Enables Display 0 EOF contribution to SCALER_DISPSTAT_IRQDISP0 */
  # define SCALER_DISPCTRL_DSPEIEOF(x)		BIT(7 + ((x) * 2))
